@@ -17,7 +17,7 @@ namespace TaskQueueHelper
         /// Task 삽입
         /// </summary>
         /// <param name="task">Task, Task<Task>(async)</param>
-        /// <returns></returns>
+        /// <returns>대기 Task</returns>
         public Task Enqueue(Task task)
         {
             if (!(task is Task || task is Task<Task>))
@@ -35,7 +35,7 @@ namespace TaskQueueHelper
         /// </summary>
         /// <typeparam name="TResult">Task 결과 타입</typeparam>
         /// <param name="task">Task<T>, Task<Task<T>>(async)</param>
-        /// <returns></returns>
+        /// <returns>대기 Task</returns>
         public Task<TResult> Enqueue<TResult>(Task task)
         {
             if (!(task is Task<TResult> || task is Task<Task<TResult>>))
